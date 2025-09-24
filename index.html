@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form onsubmit="getName(event)">
+      <label for="name"
+        >Name :
+        <input type="text" id="name" value="abcd" autocomplete="on" />
+      </label>
+
+      <label for="password"
+        >password :
+        <input type="password" id="password" value="" />
+      </label>
+
+      <label for="email"
+        >Email:
+        <input type="email" id="email" value="" autocomplete="on" />
+      </label>
+
+      <label for="date"
+        >Date:
+        <input type="date" id="date" value="" required />
+      </label>
+
+      <label for="city"></label>
+        City :
+        <select name="city" id="city">
+          <option value="Jalgaon">Jalgaon</option>
+          <option value="Pune">Pune</option>
+          <option value="Nashik">Nashik</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Jamner">Jamner</option>
+        </select>
+      </label>
+<!-- 
+       <label for="gender" id="Gender"
+        >Gender :
+       
+          male :<input type="radio" name="gender" value="male">
+       
+          female :<input type="radio" name="gender" value="female">
+      </label>  -->
+
+     <input type="submit" />
+    </form> 
+<div>
+  <h1 id="head-data">Name : </h1>
+  <h1 id="pass-data">Password : </h1>
+  <h1 id="pass-email">Email : </h1>
+  <h1 id="pass-date">Birth : </h1>
+  <h1 id="pass-city">City : </h1>
+</div>
+    <script src="./script.js"></script>
+  </body>
+</html> 
