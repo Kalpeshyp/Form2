@@ -1,87 +1,101 @@
-/* Reset default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* style.css */
 
+/* Basic Reset and Setup */
 body {
-  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-/* Form container */
+/* 1. Main Container for Row Layout */
+.container {
+    display: flex;       /* Enables Flexbox for side-by-side layout */
+    flex-wrap: wrap;     /* Allows elements to wrap/stack on small screens */
+    gap: 20px;           /* Space between the form and the output div */
+    max-width: 1000px;   /* Limits the overall width */
+    margin: 0 auto;      /* Centers the container on the page */
+}
+
+/* 2. Form and Output Div Styling for Equal Width */
+form, div:not(.container) {
+    /* flex: grow shrink basis */
+    flex: 1 1 48%;       /* Makes both elements grow equally and occupy ~50% each */
+    min-width: 300px;    /* Prevents them from getting too narrow before stacking */
+    
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Elements Layout */
 form {
-  background: white;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 350px;
-  margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
 }
 
-form label {
-  display: block;
-  margin-bottom: 15px;
-  font-weight: bold;
-  color: #333;
+/* Label and Input Styling */
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #333;
 }
 
-form input,
-form select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  outline: none;
-  transition: 0.3s;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    font-size: 1em;
 }
 
-form input:focus,
-form select:focus {
-  border-color: #6a11cb;
-  box-shadow: 0 0 5px rgba(106, 17, 203, 0.3);
+select {
+    height: 40px; 
 }
 
-/* Submit button */
-form input[type="submit"] {
-  background: #6a11cb;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: 0.3s;
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
-form input[type="submit"]:hover {
-  background: #2575fc;
+input[type="submit"]:hover {
+    background-color: #4cae4c;
 }
 
-/* Display section */
-div {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 350px;
-  text-align: left;
+/* Display Data Styling (The H1 tags inside the output div) */
+#head-data, #pass-data, #pass-email, #pass-date, #pass-city {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
 }
 
-div h1 {
-  font-size: 18px;
-  color: #444;
-  margin-bottom: 12px;
-  font-weight: normal;
-}
-
-div h1 span {
-  font-weight: bold;
-  color: #6a11cb;
+/* Media Query: Stack items vertically on smaller screens (less than 768px wide) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Overrides row to stack them vertically */
+        gap: 10px;
+        padding: 0 10px; /* Add some side padding for smaller screens */
+    }
+    
+    /* When stacked, they should take up full width */
+    form, div:not(.container) {
+        flex-basis: 100%; 
+        min-width: auto;
+    }
 }
